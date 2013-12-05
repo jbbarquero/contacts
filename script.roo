@@ -1,0 +1,20 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 10:44:35
+hint
+project --topLevelPackage com.malsolo.contacts
+hint
+jpa setup --database H2_IN_MEMORY --provider HIBERNATE 
+hint
+entity jpa --class ~.domain.Contact --testAutomatically 
+hint
+field string --fieldName firstName --notNull --sizeMin 1 --sizeMax 100
+field string --fieldName lastName --notNull --sizeMin 1 --sizeMax 250
+enum type --class ~.domain.ContactType
+enum constant --name HOME
+enum constant --name MOBILE
+focus --class ~.domain.Contact
+field enum --fieldName contactType --type ~.domain.ContactType
+field number --fieldName phone --type java.lang.Long
+perform eclipse
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-05 10:57:03
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 11:03:26
