@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_malsolo_contacts_domain_Contact" items="${contacts}" z="xGDCWtTUFSLj+8AI9X5grHiX31Y=">
+        <table:table data="${contacts}" id="l_com_malsolo_contacts_domain_Contact" path="/contacts" z="nJOPSpa/aRabvq2gEsiXqW0UUtg=">
+            <table:column id="c_com_malsolo_contacts_domain_Contact_firstName" property="firstName" z="TCpL8v8YabcWeAb7F0MZbbPDJ6g="/>
+            <table:column id="c_com_malsolo_contacts_domain_Contact_lastName" property="lastName" z="kWGjvfehvlfgvLrl8islFAkzXsU="/>
+            <table:column id="c_com_malsolo_contacts_domain_Contact_contactType" property="contactType" z="tfyNV9yUWdeRKOlj8p7MURJEPts="/>
+            <table:column id="c_com_malsolo_contacts_domain_Contact_phone" property="phone" z="20vmihlB8Q9HigOinjlYlMOxAJs="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_malsolo_contacts_domain_Contact" modelAttribute="contact" path="/contacts" versionField="Version" z="kpAR3fTMz8/awvOEGiK6UNf41+k=">
+        <field:textarea field="firstName" id="c_com_malsolo_contacts_domain_Contact_firstName" required="true" z="F1fsMOU6MuTQALNsKuodRruG7h4="/>
+        <field:textarea field="lastName" id="c_com_malsolo_contacts_domain_Contact_lastName" required="true" z="wPDVbGMTw0gdceOoa3CnQHM7+vM="/>
+        <field:select field="contactType" id="c_com_malsolo_contacts_domain_Contact_contactType" items="${contacttypes}" path="contacttypes" z="mADSpbjbkO3xJGvn4/ZDwstr3Qo="/>
+        <field:input field="phone" id="c_com_malsolo_contacts_domain_Contact_phone" validationMessageCode="field_invalid_integer" z="JLV7IQXsup8rcATdWfR9C2AmBxY="/>
+    </form:update>
+</div>
