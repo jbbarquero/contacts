@@ -5,7 +5,9 @@ package com.malsolo.contacts.web;
 
 import com.malsolo.contacts.domain.Contact;
 import com.malsolo.contacts.domain.Item;
+import com.malsolo.contacts.service.ItemService;
 import com.malsolo.contacts.web.ApplicationConversionServiceFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -13,6 +15,9 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    @Autowired
+    ItemService ApplicationConversionServiceFactoryBean.itemService;
     
     public Converter<Contact, String> ApplicationConversionServiceFactoryBean.getContactToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.malsolo.contacts.domain.Contact, java.lang.String>() {
@@ -49,7 +54,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Long, Item> ApplicationConversionServiceFactoryBean.getIdToItemConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.malsolo.contacts.domain.Item>() {
             public com.malsolo.contacts.domain.Item convert(java.lang.Long id) {
-                return Item.findItem(id);
+                return itemService.findItem(id);
             }
         };
     }
