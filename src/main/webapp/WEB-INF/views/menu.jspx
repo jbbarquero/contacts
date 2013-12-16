@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" xmlns:sec="http://www.springframework.org/security/tags" id="menu" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <sec:authorize ifAllGranted="ROLE_ADMIN">
-            <menu:category id="c_contact" z="Mum4Pow72SFjHtkf2OLMqQutcOg=">
-                <menu:item id="i_contact_new" messageCode="global_menu_new" url="/contacts?form" z="lwRv41keqcpEkNgDi/vzZp8BfAw="/>
-                <menu:item id="i_contact_list" messageCode="global_menu_list" url="/contacts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="DYJuwxmLMZGoQddIUWlUOx4o5Qg="/>
-            </menu:category>
-        </sec:authorize>
-        <menu:category id="c_seleniumtests" z="PPLMd2yNB6/LSbjIWogAacRPU+Q=">
-            <menu:item id="si_seleniumtests_test" messageCode="selenium_menu_test_suite" url="/resources/selenium/test-suite.xhtml" z="wwunW/IPDcunN97u41MvMJZQ2to="/>
-        </menu:category>
-    </menu:menu>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu"
+	xmlns:sec="http://www.springframework.org/security/tags" id="menu"
+	version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+		<sec:authorize ifAllGranted="ROLE_USER">
+			<menu:category id="c_contact" z="Mum4Pow72SFjHtkf2OLMqQutcOg=">
+				<menu:item id="i_contact_new" messageCode="global_menu_new"
+					url="/contacts?form" z="lwRv41keqcpEkNgDi/vzZp8BfAw=" />
+				<menu:item id="i_contact_list" messageCode="global_menu_list"
+					url="/contacts?page=1&amp;size=${empty param.size ? 10 : param.size}"
+					z="DYJuwxmLMZGoQddIUWlUOx4o5Qg=" />
+			</menu:category>
+		</sec:authorize>
+		<sec:authorize ifAllGranted="ROLE_ADMIN">
+			<menu:category id="c_item" z="jWO1pnucyLwI2bZuwfja4eCYsjU=">
+				<menu:item id="i_item_new" messageCode="global_menu_new"
+					url="/items?form" z="I+/MpOYxZ47XKvsQW1PUi6uC060=" />
+				<menu:item id="i_item_list" messageCode="global_menu_list"
+					url="/items?page=1&amp;size=${empty param.size ? 10 : param.size}"
+					z="4RxBMvjr2gUD8qO0DTWmjd1SzS0=" />
+			</menu:category>
+			<menu:category id="c_seleniumtests" z="PPLMd2yNB6/LSbjIWogAacRPU+Q=">
+				<menu:item id="si_seleniumtests_test"
+					messageCode="selenium_menu_test_suite"
+					url="/resources/selenium/test-suite.xhtml"
+					z="wwunW/IPDcunN97u41MvMJZQ2to=" />
+			</menu:category>
+		</sec:authorize>
+	</menu:menu>
 </div>

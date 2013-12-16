@@ -4,6 +4,7 @@
 package com.malsolo.contacts.web;
 
 import com.malsolo.contacts.domain.Contact;
+import com.malsolo.contacts.domain.Item;
 import com.malsolo.contacts.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -37,10 +38,37 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Item, String> ApplicationConversionServiceFactoryBean.getItemToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.malsolo.contacts.domain.Item, java.lang.String>() {
+            public String convert(Item item) {
+                return new StringBuilder().append(item.getName()).append(' ').append(item.getDescription()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Item> ApplicationConversionServiceFactoryBean.getIdToItemConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.malsolo.contacts.domain.Item>() {
+            public com.malsolo.contacts.domain.Item convert(java.lang.Long id) {
+                return Item.findItem(id);
+            }
+        };
+    }
+    
+    public Converter<String, Item> ApplicationConversionServiceFactoryBean.getStringToItemConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.malsolo.contacts.domain.Item>() {
+            public com.malsolo.contacts.domain.Item convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Item.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getContactToStringConverter());
         registry.addConverter(getIdToContactConverter());
         registry.addConverter(getStringToContactConverter());
+        registry.addConverter(getItemToStringConverter());
+        registry.addConverter(getIdToItemConverter());
+        registry.addConverter(getStringToItemConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
