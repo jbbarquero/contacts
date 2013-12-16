@@ -38,4 +38,27 @@ public class ItemIntegrationTest {
         }
         Assert.assertNotNull("Expected 'Item' identifier to no longer be null", itemDto.getId());
     }
+
+    @Test
+    public void testUpdateItemDtoUpdate() {
+        Item obj = dod.getRandomItem();
+        Assert.assertNotNull("Data on demand for 'Item' failed to initialize correctly", obj);
+        Long id = obj.getId();
+        Assert.assertNotNull("Data on demand for 'Item' failed to provide an identifier", id);
+        obj = itemService.findItem(id);
+        //Integer currentVersion = obj.getVersion();
+        ItemDTO merged = itemService.updateItem(itemService.entityToDto(obj));
+        Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId(), id);
+    }
+
+    @Test
+    public void testDeleteItemDto() {
+        Item obj = dod.getRandomItem();
+        Assert.assertNotNull("Data on demand for 'Item' failed to initialize correctly", obj);
+        Long id = obj.getId();
+        Assert.assertNotNull("Data on demand for 'Item' failed to provide an identifier", id);
+        ItemDTO itemDto = itemService.entityToDto(itemService.findItem(id));
+        itemService.deleteItem(itemDto);
+        Assert.assertNull("Failed to remove 'Item' with identifier '" + id + "'", itemService.findItem(id));
+    }
 }
