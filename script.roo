@@ -18,3 +18,58 @@ perform eclipse
 q
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-05 10:57:03
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 11:03:26
+web mvc setup 
+web mvc all --package ~.web
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-05 11:31:57
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 11:52:07
+hint
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-05 12:23:57
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 12:24:31
+security setup
+selenium test --controller ~.web.ContactController
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-05 15:28:36
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 09:39:00
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 09:39:26
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 10:43:55
+hint
+entity jpa --class ~.domain.Item
+field string --fieldName name
+field string --fieldName description
+test integration --entity ~.domain.Item
+web mvc scaffold --class ~.web.ItemController --backingType ~.domain.Item
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 11:30:20
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 11:44:57
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 12:23:09
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 12:26:46
+service type --entity ~.domain.Item --interface ~.service.ItemService
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 12:31:59
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 12:32:06
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 13:05:25
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 13:05:30
+hint
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 13:52:36
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 13:52:42
+hint
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 14:01:26
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-16 14:01:46
+hint
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-16 14:01:56
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-20 10:43:28
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-12-20 10:45:00
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-01-14 08:51:22
+web mvc controller --class ~.web.EnvironmentController --preferredMapping /admin/environment
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-01-14 11:28:32
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-01-17 09:33:51
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-01-17 09:35:27
